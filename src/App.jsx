@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import HomeCards from '@/components/HomeCards';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
         heading='React jobs globally'
         subHeading='Find an all in one place for react jobs api worldwide'
       />
+      <HomeCards />
 
       <section className='px-4 py-10 bg-blue-50'>
         <div className='m-auto container-xl lg:container'>
