@@ -1,6 +1,14 @@
 import React from 'react';
 
 const Navbar = () => {
+  const navlinks = [
+    { title: 'Home', url: '/index.html' },
+    { title: 'Jobs', url: '/jobs.html' },
+    { title: 'Add Job', url: '/add-job.html' },
+  ];
+
+  const activeLink = navlinks.url === window.location.pathname;
+
   return (
     <nav className='bg-indigo-700 border-b border-indigo-500'>
       <div className='px-2 mx-auto max-w-7xl sm:px-6 lg:px-8'>
@@ -20,21 +28,14 @@ const Navbar = () => {
             </a>
             <div className='md:ml-auto'>
               <div className='flex space-x-2'>
-                <a
-                  href='/index.html'
-                  className='px-3 py-2 text-white bg-black rounded-md hover:bg-gray-900 hover:text-white'>
-                  Home
-                </a>
-                <a
-                  href='/jobs.html'
-                  className='px-3 py-2 text-white rounded-md hover:bg-gray-900 hover:text-white'>
-                  Jobs
-                </a>
-                <a
-                  href='/add-job.html'
-                  className='px-3 py-2 text-white rounded-md hover:bg-gray-900 hover:text-white'>
-                  Add Job
-                </a>
+                {navlinks.map((link) => (
+                  <a
+                    key={link.title}
+                    href={link.url}
+                    className='px-3 py-2 text-[18px] font-medium text-white rounded-md hover:bg-indigo-500'>
+                    {link.title}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
