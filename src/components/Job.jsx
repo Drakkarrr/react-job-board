@@ -18,7 +18,9 @@ const Job = ({ job }) => {
         </div>
 
         <div className='mb-5'>{jobDescription}</div>
-        <button className='mb-5 text-indigo-500 hover:font-semibold'>
+        <button
+          className='mb-5 text-indigo-500 hover:font-semibold'
+          onClick={() => setShowFullDescription((prevSate) => !prevSate)}>
           {showFullDescription ? 'Show Less' : 'Read More'}
         </button>
 
