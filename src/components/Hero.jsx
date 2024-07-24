@@ -1,6 +1,9 @@
 import React from 'react';
 
-const Hero = ({ heading, subHeading }) => {
+const Hero = ({
+  heading = 'Find React Jobs',
+  subHeading = 'The best place for react jobs posting and searching around the world',
+}) => {
   return (
     <section className='py-20 mb-4 bg-indigo-700'>
       <div className='flex flex-col items-center px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
