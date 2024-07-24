@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Job from './Job';
+import Loader from './Loader';
 
 const Joblisting = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);
@@ -8,6 +9,7 @@ const Joblisting = ({ isHome = false }) => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
+        setLoading(true);
         const res = await fetch('http://localhost:8080/jobs/');
         const data = await res.json();
         setJobs(data);
@@ -27,17 +29,15 @@ const Joblisting = ({ isHome = false }) => {
         <h2 className='mb-6 text-3xl font-bold text-center text-indigo-500'>
           {isHome ? 'Featured Jobs' : 'Browse All Jobs'}
         </h2>
-        <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
-          {loading ? (
-            <h1>Fetching data...</h1>
-          ) : (
-            <>
-              {jobs.map((job) => (
-                <Job key={job.id} job={job} />
-              ))}
-            </>
-          )}
-        </div>
+        {loading ? (
+          <Loader loading={loading} />
+        ) : (
+          <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+            {jobs.map((job) => (
+              <Job key={job.id} job={job} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
