@@ -1,23 +1,22 @@
 import React from 'react';
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import HomeCards from '@/components/HomeCards';
 import Joblisting from '@/components/Joblisting';
 import ViewAllJobs from '@/components/ViewAllJobs';
 
+const router = createBrowserRouter(
+  createRoutesFromElements(<Route index element={<h1>About</h1>} />)
+);
+
 const App = () => {
-  return (
-    <>
-      <Navbar />
-      <Hero
-        heading='React jobs globally'
-        subHeading='Find an all in one place for react jobs api worldwide'
-      />
-      <HomeCards />
-      <Joblisting />
-      <ViewAllJobs />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
