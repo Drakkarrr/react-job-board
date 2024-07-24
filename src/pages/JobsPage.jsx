@@ -4,7 +4,9 @@ import Joblisting from '../components/Joblisting';
 const JobsPage = () => {
   return (
     <>
-      /<Joblisting />
+      <section className='px-4 py-6 bg-blue-50'>
+        <Joblisting />
+      </section>
     </>
   );
 };
