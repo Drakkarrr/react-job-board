@@ -19,7 +19,7 @@ const Job = ({ job }) => {
 
         <div className='mb-5'>{jobDescription}</div>
         <button className='mb-5 text-indigo-500 hover:font-semibold'>
-          Show More
+          {showFullDescription ? 'Show Less' : 'Read More'}
         </button>
 
         <h3 className='mb-2 text-indigo-500'>{job.salary} / Year</h3>
