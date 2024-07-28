@@ -3,6 +3,7 @@ import { useParams, useLoaderData, Link } from 'react-router-dom';
 const JobPage = () => {
   const { id } = useParams();
   const job = useLoaderData();
+  console.log(job);
 
   return (
     <>
@@ -21,7 +22,7 @@ const JobPage = () => {
           <div className='grid w-full grid-cols-1 gap-6 md:grid-cols-70/30'>
             <main>
               <div className='p-6 text-center bg-white rounded-lg shadow-md md:text-left'>
-                <div className='mb-4 text-gray-500'>Full-Time</div>
+                <div className='mb-4 text-gray-500'>{job.type}</div>
                 <h1 className='mb-4 text-3xl font-bold'>
                   Senior React Developer
                 </h1>
