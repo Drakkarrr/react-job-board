@@ -3,7 +3,6 @@ import { useParams, useLoaderData, Link } from 'react-router-dom';
 const JobPage = () => {
   const { id } = useParams();
   const job = useLoaderData();
-  console.log(job);
 
   return (
     <>
@@ -23,12 +22,10 @@ const JobPage = () => {
             <main>
               <div className='p-6 text-center bg-white rounded-lg shadow-md md:text-left'>
                 <div className='mb-4 text-gray-500'>{job.type}</div>
-                <h1 className='mb-4 text-3xl font-bold'>
-                  Senior React Developer
-                </h1>
+                <h1 className='mb-4 text-3xl font-bold'>{job.title}</h1>
                 <div className='flex justify-center mb-4 text-gray-500 align-middle md:justify-start'>
                   <i className='mr-2 text-lg text-orange-700 fa-solid fa-location-dot'></i>
-                  <p className='text-orange-700'>Boston, MA</p>
+                  <p className='text-orange-700'>{job.location}</p>
                 </div>
               </div>
 
@@ -37,18 +34,13 @@ const JobPage = () => {
                   Job Description
                 </h3>
 
-                <p className='mb-4'>
-                  We are seeking a talented Front-End Developer to join our team
-                  in Boston, MA. The ideal candidate will have strong skills in
-                  HTML, CSS, and JavaScript, with experience working with modern
-                  JavaScript frameworks such as React or Angular.
-                </p>
+                <p className='mb-4'>{job.description}</p>
 
                 <h3 className='mb-2 text-lg font-bold text-indigo-800'>
                   Salary
                 </h3>
 
-                <p className='mb-4'>$70k - $80K / Year</p>
+                <p className='mb-4'>{job.salary} / Year</p>
               </div>
             </main>
 
@@ -56,36 +48,32 @@ const JobPage = () => {
               <div className='p-6 bg-white rounded-lg shadow-md'>
                 <h3 className='mb-6 text-xl font-bold'>Company Info</h3>
 
-                <h2 className='text-2xl'>NewTek Solutions</h2>
+                <h2 className='text-2xl'>{job.company.name}</h2>
 
-                <p className='my-2'>
-                  NewTek Solutions is a leading technology company specializing
-                  in web development and digital solutions. We pride ourselves
-                  on delivering high-quality products and services to our
-                  clients while fostering a collaborative and innovative work
-                  environment.
-                </p>
+                <p className='my-2'>{job.company.description}</p>
 
                 <hr className='my-4' />
 
                 <h3 className='text-xl'>Contact Email:</h3>
 
                 <p className='p-2 my-2 font-bold bg-indigo-100'>
-                  contact@newteksolutions.com
+                  {job.company.contactEmail}
                 </p>
 
                 <h3 className='text-xl'>Contact Phone:</h3>
 
-                <p className='p-2 my-2 font-bold bg-indigo-100'>555-555-5555</p>
+                <p className='p-2 my-2 font-bold bg-indigo-100'>
+                  {job.company.contactPhone}
+                </p>
               </div>
 
               <div className='p-6 mt-6 bg-white rounded-lg shadow-md'>
                 <h3 className='mb-6 text-xl font-bold'>Manage Job</h3>
-                <a
-                  href='/add-job.html'
+                <Link
+                  to='/add-job'
                   className='block w-full px-4 py-2 mt-4 font-bold text-center text-white bg-indigo-500 rounded-full hover:bg-indigo-600 focus:outline-none focus:shadow-outline'>
                   Edit Job
-                </a>
+                </Link>
                 <button className='block w-full px-4 py-2 mt-4 font-bold text-white bg-red-500 rounded-full hover:bg-red-600 focus:outline-none focus:shadow-outline'>
                   Delete Job
                 </button>
